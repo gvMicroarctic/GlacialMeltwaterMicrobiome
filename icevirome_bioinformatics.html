@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>icevirome_bioinformatics</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h2 id="toc_0">1. Assembly</h2>
+
+<h3 id="toc_1">1.1. Create co-assembly</h3>
+
+<div><pre><code class="language-bash">megahit -1 ./01_trimmomatic/a-BM1a_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-BM2_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-BM4_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-BR1_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-BR2_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-BR4_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-BM1b_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-BM3_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-BM5_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-BR3_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-BR5_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM1a_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM1b_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM3a_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM3b_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM4_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM5_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-VR1_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-VR2_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-VR3_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-VR4_R1.trimmed.pe.fastq.gz,./01_trimmomatic/a-VR5_R1.trimmed.pe.fastq.gz -2 ./01_trimmomatic/a-BM1a_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-BM2_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-BM4_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-BR1_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-BR2_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-BR4_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-BM1b_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-BM3_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-BM5_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-BR3_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-BR5_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM1a_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM1b_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM3a_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM3b_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM4_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-VM5_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-VR1_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-VR2_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-VR3_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-VR4_R2.trimmed.pe.fastq.gz,./01_trimmomatic/a-VR5_R2.trimmed.pe.fastq.gz --k-min 23 --k-max 143 --k-step 10 --memory 0.80 -t 60 -o assembly
+
+#longMeta scripts from https://github.com/gvMicroarctic/LongMeta
+longMeta-summary -s assembly/final.contigs.fa --length-output ./assembly/final.contigs_len.txt
+# |  File                         |  Contig number  |  Total bp    |  Mean  |  Median  |  Max length  |  Min length  |  n50   |  GC%  |
+# |  ./assembly/final.contigs.fa  |  4890682        |  4223790640  |  863   |  12715   |  533473      |  200         |  1186  |  47   |
+
+longMeta-summary -s assembly/final.contigs.fa -min 1000 --assembly-output assembly/final.contigs_1000.fa
+# |  File                         |  Contig number  |  Total bp    |  Mean  |  Median  |  Max length  |  Min length  |  n50   |  GC%  |
+# |  ./assembly/final.contigs.fa  |  780852         |  2293511867  |  2937  |  13151   |  533473      |  1000        |  3957  |  47   |
+
+longMeta-summary -s assembly/final.contigs.fa -min 1500 --assembly-output assembly/final.contigs_1500.fa
+# |  File                         |  Contig number  |  Total bp    |  Mean  |  Median  |  Max length  |  Min length  |  n50   |  GC%  |
+# |  ./assembly/final.contigs.fa  |  444100         |  1886901716  |  4248  |  13425   |  533473      |  1500        |  5425  |  47   |
+
+longMeta-summary -s assembly/final.contigs.fa -min 5000 --assembly-output assembly/final.contigs_5000.fa
+# |  File                         |  Contig number  |  Total bp   |  Mean   |  Median  |  Max length  |  Min length  |  n50    |  GC%  |
+# |  ./assembly/final.contigs.fa  |  86102          |  994504174  |  11550  |  15509   |  533473      |  5000        |  12526  |  48   |</code></pre></div>
+
+<h3 id="toc_2">1.2. Map reads to assembly</h3>
+
+<div><pre><code class="language-bash">#create mapping index
+bowtie2-build --threads 100 ./assembly/final.contigs_1000.fa assembly/assembly_1000_index
+
+#create directory to store bam files
+mkdir ./assembly/mapped_reads
+
+#create directory to store bam files
+mkdir ./assembly/mapped_reads
+
+#map fastq files to co-assembly
+cd ./01_trimmomatic/
+for file in a-*_R1.trimmed.pe.fastq.gz
+do
+name=${file%%_R1*}
+echo ${name}
+sbatch --export=INDEX=./assembly/assembly_1000_index,FOR=./01_trimmomatic/${name}_R1.trimmed.pe.fastq.gz,REV=./01_trimmomatic/${name}_R2.trimmed.pe.fastq.gz,OUT=./assembly/mapped_reads/${name} ./bowtie2.sh
+done
+
+#count reads that ampped back to contigs
+cd ./assembly/mapped_reads
+coverm contig --bam-files a-BM1a_si.bam a-BM1b_si.bam a-BM2_si.bam a-BM3_si.bam a-BM4_si.bam a-BM5_si.bam a-BR1_si.bam a-BR2_si.bam a-BR3_si.bam a-BR4_si.bam a-BR5_si.bam a-VM1a_si.bam a-VM1b_si.bam a-VM3a_si.bam a-VM3b_si.bam a-VM4_si.bam a-VM5_si.bam a-VR1_si.bam a-VR2_si.bam a-VR3_si.bam a-VR4_si.bam a-VR5_si.bam -m mean covered_bases tpm --output-file assembly_abundance_10.txt --min-covered-fraction 10</code></pre></div>
+
+<h3 id="toc_3">1.3. Taxonomic classification</h3>
+
+<div><pre><code class="language-bash">mkdir ./assembly/tmp/
+CAT_pack contigs -c ./assembly/final.contigs_1000.fa -d ../CAT_db/20241212_CAT_nr_website/db -t ../CAT_db/20241212_CAT_nr_website/tax -o ./assembly/taxonomy_cat --tmpdir assembly/tmp -n 30
+
+#add taxonomic information to taxids
+CAT_pack add_names -i ./assembly/taxonomy_cat.contig2classification.txt -o ./assembly/cat_taxonomy_only_official.txt -t ../CAT_db/20241212_CAT_nr_website/tax --only_official --exclude_scores
+
+#format the output
+./format_cat.py
+#output: ./assembly/cat_taxonomy_only_official_formatted.csv
+
+#further trimming in order to consider only matches were taxonomy was given from more than 2 ORFs and from more than half of the total ORFs in a contig.
+./format_cat_trim.py
+#output: ./assembly/cat_taxonomy_only_official_formatted_trimmed.csv</code></pre></div>
+
+<h3 id="toc_4">1.4. Annotate assembly</h3>
+
+<h4 id="toc_5">1.4.1. Separate assembly contigs in prokaryotic VS eukaryotic</h4>
+
+<div><pre><code class="language-bash">#get headers of contigs ascribed to eukaryotes
+cd ./assembly
+grep &quot;Eukaryota&quot; cat_taxonomy_only_official_formatted_trimmed.csv &gt; cat_taxonomy_only_official_formatted_trimmed_eukaryota.csv
+
+#separate assembly fasta file
+./filter_fasta.py cat_taxonomy_only_official_formatted_trimmed_eukaryota.csv ./assembly/final.contigs_1000.fa ./assembly/final.contigs_1000_eukaryota.fa ./assembly/final.contigs_1000_prokaryota.fa
+#output: ./assembly/final.contigs_1000_eukaryota.fa
+#output: ./assembly/final.contigs_1000_prokaryota.fa</code></pre></div>
+
+<h4 id="toc_6">1.4.2. Run DRAM on prokaryotic contigs</h4>
+
+<div><pre><code class="language-bash">DRAM.py annotate -i ./assembly/final.contigs_1000_prokaryota.fa -o ./assembly/dram --threads 70 --min_contig_size 1
+DRAM.py distill -i ./assembly/dram/annotations.tsv -o ./assembly/final/distill</code></pre></div>
+
+<h4 id="toc_7">1.4.3. Run MetaEuk on eukaryotic contigs</h4>
+
+<div><pre><code class="language-bash">#run
+metaeuk easy-predict ./assembly/final.contigs_1000_eukaryota.fa ../metaeuk/uniref90.fasta.gz ./assembly/metaeuk_uniref ./assembly/tmp_uniref --threads 50 -s 7.5
+
+#create and move files to dedicated folder
+mkdir ./assembly/metaeuk_uniref</code></pre></div>
+
+<h2 id="toc_8">2. MAGs</h2>
+
+<div><pre><code class="language-bash">mkdir MAG</code></pre></div>
+
+<h3 id="toc_9">2.1. Create bins</h3>
+
+<h4 id="toc_10">2.1.1. MetaBAT</h4>
+
+<div><pre><code class="language-bash">mkdir ./MAG/metabat
+cd ./MAG/metabat
+
+#create depth file
+jgi_summarize_bam_contig_depths --outputDepth depth.txt ./assembly/mapped_reads/*.bam
+
+#run metabat2
+metabat2 -i ./assembly/final.contigs_1000.fa -a depth.txt -o ./bin/metabat -m 1500 -t 40</code></pre></div>
+
+<h4 id="toc_11">2.1.2. Maxbin</h4>
+
+<div><pre><code class="language-bash">mkdir ./MAG/maxbin
+
+#create coverage file
+cd ./MAG/maxbin
+for i in `seq 4 2 47` #47 in the number of column in depth.txt
+do
+  echo $i
+  cut -f1,${i} ./MAG/metabat/depth.txt | tail -n+2 &gt; coverage_${i}.txt
+done
+ls coverage_*.txt &gt; coverage_all.txt
+
+#run maxbin
+mkdir ./bin
+run_MaxBin.pl -contig ./assembly/final.contigs_1000.fa -abund_list coverage_all.txt -out ./bin/maxbin -thread 50 -min_contig_length 1500</code></pre></div>
+
+<h4 id="toc_12">2.1.3. CONCOCT</h4>
+
+<div><pre><code class="language-bash">mkdir ./MAG/concoct
+cd ./MAG/concoct
+
+#split the contigs
+cut_up_fasta.py ./assembly/final.contigs_1000.fa -c 10000 -o 0 --merge_last -b ./assembly.bed &gt; assembly.fa
+
+#create coverage file
+concoct_coverage_table.py assembly.bed ./assembly/mapped_reads/*.bam &gt; coverage.txt
+concoct --composition_file assembly.fa --coverage_file coverage.txt -c 600 -r 100 -b . --no_original_data -t 50 -l 1500
+merge_cutup_clustering.py clustering_gt1500.csv 1&gt;&gt; concoct_merged_gt1500.csv
+mkdir bin
+extract_fasta_bins.py ./assembly/final.contigs_1000.fa concoct_merged_gt1500.csv --output_path ./bin</code></pre></div>
+
+<h4 id="toc_13">2.1.4 metaWRAP</h4>
+
+<div><pre><code class="language-bash">#refine bins
+metawrap bin_refinement -A ./MAG/concoct/bin -B ./MAG/metabat/bin  -C ./MAG/maxbin/bin -o ./MAG/metawrap_bin_refinement -t 50 -m 300000 -c 50 -x 10
+
+#merge reads
+zcat 01_trimmomatic/a-*_R1.trimmed.pe.fastq.gz &gt; all_R1.fastq
+zcat 01_trimmomatic/a-*_R2.trimmed.pe.fastq.gz &gt; all_R2.fastq
+
+#reassemble bins
+metawrap reassemble_bins -b ./MAG/metawrap_bin_refinement/metawrap_50_10_bins -o ./MAG/metawrap_reassemble_bins -1 all_R1.fastq -2 all_R2.fastq -t 80 -m 500000 -c 50 -x 10</code></pre></div>
+
+<h3 id="toc_14">2.2. Check bins</h3>
+
+<h4 id="toc_15">2.2.1. checkm</h4>
+
+<div><pre><code class="language-bash">mkdir ./MAG/checkm
+checkm2 predict --input ./MAG/metawrap_reassemble_bins/reassembled_bins -o ./MAG/checkm --database_path ../CheckM2_database/uniref100.KO.1.dmnd --threads 20 -x fa</code></pre></div>
+
+<h4 id="toc_16">2.2.2. Create medium_high folder</h4>
+
+<div><pre><code class="language-bash">#retrieve only medium and high quality for completness &gt;= 50 and contamination &lt; 10 to folder medium_high, and rename sequence headers
+mkdir ./MAG/medium_high
+./high_medium_MAGs.py ./MAG/checkm/quality_report.tsv ./MAG/metawrap_reassemble_bins/reassembled_bins ./MAG/medium_high</code></pre></div>
+
+<h4 id="toc_17">2.2.3. dREP</h4>
+
+<div><pre><code class="language-bash">dRep dereplicate ./MAG/medium_high_drep_95 -g ./MAG/medium_high/*.fa -sa 0.95 -comp 50 -con 10</code></pre></div>
+
+<h3 id="toc_18">2.3. Taxonomic annotation</h3>
+
+<div><pre><code class="language-bash">mkdir ./MAG/gtdbtk_drep
+
+gtdbtk classify_wf --genome_dir ./MAG/medium_high_drep_95/dereplicated_genomes/ --out_dir ./MAG/gtdbtk_drep -x fa --cpus 30</code></pre></div>
+
+<h3 id="toc_19">2.4. Functional annotation</h3>
+
+<h4 id="toc_20">2.6.1. DRAM</h4>
+
+<div><pre><code class="language-bash">DRAM.py annotate -i &#39;./MAG/medium_high_drep_95/dereplicated_genomes/*.fa&#39; -o ./MAG/dram_drep --threads 80 --min_contig_size 1
+DRAM.py distill -i ./MAG/dram_drep/annotations.tsv -o ./MAG/dram_drep/distill</code></pre></div>
+
+<h4 id="toc_21">2.6.2. eggnog mapper</h4>
+
+<div><pre><code class="language-bash">mkdir ./MAG/COG/
+
+emapper.py --cpu 50 -i ./MAG/dram_drep/genes.faa --data_dir ../eggnog_mapper_db/ --output cog --output_dir ./MAG/COG/</code></pre></div>
+
+<h4 id="toc_22">2.6.3. KOFAMSCAN &amp; KEGG-Decoder</h4>
+
+<div><pre><code class="language-bash">#kofam
+exec_annotation -o ./MAG/kofamscan/annotation.txt -p ../kofamscan_db/profiles -k ../kofamscan_db/ko_list --cpu=50 --tmp-dir=./MAG/kofamscan/tmp MAG/dram_drep/genes.faa
+
+exec_annotation -f mapper -o ./MAG/kofamscan/annotation_mapper.txt -p ../kofamscan_db/profiles -k ../kofamscan_db/ko_list --cpu=50 --tmp-dir=./MAG/kofamscan/tmp ./MAG/dram_drep/genes.faa
+
+#KEGG Decoder 
+#format input (keggdecoder considers everything before the first &quot;_&quot; as bin)
+cd ./MAG/kofamscan
+sed &#39;s/^bin_\([0-9]\+\)/bin.\1/&#39; annotation_mapper.txt &gt; annotation_mapper_formatted.txt
+
+KEGG-decoder -i ./MAG/kofamscan/annotation_mapper_formatted.txt -o ./MAG/kofamscan/keggdecoder.txt --vizoption static</code></pre></div>
+
+<h3 id="toc_23">2.5. Map DNA reads to MAGs</h3>
+
+<div><pre><code class="language-bash">#merge all MAGs (./MAG/medium_high_drep_95/dereplicated_genomes/*) in one fasta file
+./merge_MAGs.py
+#output: ./MAG/all_mags.fasta
+
+#create mapping index
+bowtie2-build ./MAG/all_mags.fasta ./MAG/all_mags_index
+
+#create directory to store bam files
+mkdir ./MAG/mapped_reads
+
+#map fastq files to co-assembly
+cd ./01_trimmomatic/
+for file in a-*_R1.trimmed.pe.fastq.gz
+do
+name=${file%%_R1*}
+echo ${name}
+sbatch --export=INDEX=./MAG/all_mags_index,FOR=./01_trimmomatic/${name}_R1.trimmed.pe.fastq.gz,REV=./01_trimmomatic/${name}_R2.trimmed.pe.fastq.gz,OUT=./MAG/mapped_reads/${name} ./bowtie2.sh
+done
+
+#coverM
+cd ./MAG/mapped_reads
+coverm genome --bam-files a-BM1a_si.bam a-BM1b_si.bam a-BM2_si.bam a-BM3_si.bam a-BM4_si.bam a-BM5_si.bam a-BR1_si.bam a-BR2_si.bam a-BR3_si.bam a-BR4_si.bam a-BR5_si.bam a-VM1a_si.bam a-VM1b_si.bam a-VM3a_si.bam a-VM3b_si.bam a-VM4_si.bam a-VM5_si.bam a-VR1_si.bam a-VR2_si.bam a-VR3_si.bam a-VR4_si.bam a-VR5_si.bam --genome-fasta-directory MAG/medium_high_drep_95/dereplicated_genomes/ --genome-fasta-extension fa -m mean covered_bases tpm relative_abundance --output-file MAG_abundance_10.txt --min-covered-fraction 10 &gt; coverm_MAG_10.txt 2&gt;&amp;1</code></pre></div>
+
+<h3 id="toc_24">2.6. MAG placement in phylogenetic tree</h3>
+
+<h4 id="toc_25">2.6.1. Download NCBI reference genomes</h4>
+
+<div><pre><code class="language-bash">#create directory
+mkdir ./MAG/phylophlan
+
+#create file with taxid + taxonomic path
+mkdir ../pp_db
+cd ../pp_db
+wget https://ftp.ncbi.nih.gov/pub/taxonomy/new_taxdump/new_taxdump.tar.gz
+tar -xzf new_taxdump.tar.gz
+./pp_db/taxid2taxonomy.py
+#output: ../pp_db/taxid2taxonomy.txt
+
+#read GCA file and get associations among taxid, taxonomy and GCA accessions
+wget https://ftp.ncbi.nlm.nih.gov/genomes/genbank/assembly_summary_genbank.txt
+./pp_db/GCA2taxonomy.py
+#output: ../pp_db/GCA2taxonomy.txt
+
+#GCA to be retrieved from gtdb-Tk (./MAG/gtdbtk_drep/classify/gtdbtk.backbone.bac120.classify.tree)
+mkdir ./MAG/phylophlan/db/
+./pp_db/gtdbtk_sequences.py
+./pp_db/gtdbtk_sequences_format.py
+#output: ./MAG/phylophlan/db/formatted_sequences.txt
+
+#retrieve genome accessions from NCBI
+./pp_db/downloadGCA.py -i ./MAG/phylophlan/db/formatted_sequences.txt -o ./MAG/phylophlan/db/accession -l ./MAG/phylophlan/db/downloaded_genomes.log
+#output: selected NCBI genome files
+
+#add MAGs to downloaded NCBI genomes and format
+cd ./MAG/phylophlan/db/accession
+cp ./MAG/medium_high_drep_95/dereplicated_genomes/* .
+for file in *.fa; do
+    #rename each file by replacing &quot;.fa&quot; with &quot;.fna&quot;
+    mv -- &quot;$file&quot; &quot;${file%.fa}.fna&quot;
+done</code></pre></div>
+
+<h4 id="toc_26">2.6.2. Create configuration file</h4>
+
+<div><pre><code class="language-bash">cd ./MAG/phylophlan
+phylophlan_write_config_file -d a -o tree_of_life.cfg --db_aa diamond --map_dna diamond --map_aa diamond --msa mafft --trim trimal --tree1 iqtree</code></pre></div>
+
+<h4 id="toc_27">2.6.3. Get predicted proteins from each genome</h4>
+
+<div><pre><code class="language-bash">#run prodigal on all genomes
+mkdir ./MAG/phylophlan/accession_aa
+input_dir=&quot;./MAG/phylophlan/db/accession&quot;
+output_dir=&quot;./MAG/phylophlan/accession_aa&quot;
+
+for f in &quot;$input_dir&quot;/*.fna; do
+    fname=$(basename &quot;$f&quot;)
+    base=${fname%.fna}
+
+    echo &quot;Running Prodigal on $fname&quot;
+
+    prodigal -i &quot;$f&quot; -a &quot;$output_dir/${base}.faa&quot; -p single
+done</code></pre></div>
+
+<h4 id="toc_28">2.6.4. Construct tree</h4>
+
+<div><pre><code class="language-bash">#run phylophlan
+cd ./MAG/phylophlan/
+phylophlan -i ./MAG/phylophlan/accession_aa -d phylophlan -f ./MAG/phylophlan/tree_of_life.cfg --diversity high --fast -o ./MAG/phylophlan/ --nproc 90 --min_num_markers 60 &gt; ./MAG/phylophlan/phylophlan.log 2&gt;&amp;1</code></pre></div>
+
+<h2 id="toc_29">3. vOTUs</h2>
+
+<h3 id="toc_30">3.1. Create vOTUs</h3>
+
+<div><pre><code class="language-none">mkdir ./viral_contig</code></pre></div>
+
+<h4 id="toc_31">3.1.1. vibrant</h4>
+
+<div><pre><code class="language-bash">mkdir ./viral_contig/vibrant
+cd ./viral_contig/vibrant
+VIBRANT_run.py -i ./assembly/final.contigs_5000.fa -t 20
+
+#format contig headers of vibrant output
+./format_vibrant_contig.py
+#output: viral_contig/vibrant/vibrant.fasta</code></pre></div>
+
+<h4 id="toc_32">3.1.2. seeker</h4>
+
+<div><pre><code class="language-bash">mkdir ./viral_contig/seeker
+cd ./viral_contig/seeker
+
+#run DeepVirFinder
+predict-metagenome ./assembly/final.contigs_5000.fa &gt; seeker.txt
+
+#trim by score &gt;= 0.90, and contigs assigned to &quot;Phage&quot;
+grep &quot;^k&quot; seeker.txt &gt; seeker_trimmed.txt
+./format_seeker_contig.py
+#output: ./viral_contig/seeker/seeker.fasta</code></pre></div>
+
+<h4 id="toc_33">3.1.3. deepvirfinder</h4>
+
+<div><pre><code class="language-bash">mkdir ./viral_contig/contig_dvf
+cd ./viral_contig/contig_dvf
+python dvf.py -i ./assembly/final.contigs_5000.fa -o ./viral_contig/dvf -c 40
+
+#trim for score ≥ 0.9 and p-value ≤ 0.05
+./format_dvf_contig.py
+#output: ./viral_contig/dvf/dvf.fasta</code></pre></div>
+
+<h4 id="toc_34">3.1.4. virsorter2</h4>
+
+<div><pre><code class="language-bash">mkdir ./viral_contig/virsorter2
+virsorter run -w ./viral_contig/virsorter2 -i ./assembly/final.contigs_5000.fa -j 30 --include-groups &quot;dsDNAphage,NCLDV,RNA,ssDNA,lavidaviridae&quot;
+
+#trim for max_score &gt;= 0.7
+./format_virsorter2_contig.py
+#output: ./viral_contig/virsorter2/virsorter2.fasta</code></pre></div>
+
+<h4 id="toc_35">3.1.5. Merge viral contigs</h4>
+
+<div><pre><code class="language-bash">#combine in one file all viral contigs that were found in all four software
+#combine all contig files and remove overlapping; vibrant and virsorter2 modified some of the contigs:
+#vibrant adds _fragment_X in the contig name.
+#virsorter2 adds ||full or ||X_partial or ||lt2gene and can modify contigs. 
+./merge_viral_contig.py
+#output: viral_contig/viral_contigs.fasta
+
+#run cd-hit-est to create clusters with 95% identity threshold with an alignment coverage of 85% for the shorter contig.
+cd-hit-est -i ./viral_contig/viral_contigs.fasta -o ./viral_contig/viral_contigs_unique.fasta -c 0.95 -M 20000 -T 10 -n 9 -aS 0.85</code></pre></div>
+
+<h3 id="toc_36">3.2. Check vOTUs</h3>
+
+<h4 id="toc_37">3.2.1. Check and run qc on vOTUs</h4>
+
+<div><pre><code class="language-bash">#checkv
+mkdir ./viral_contig/checkv
+export CHECKVDB=/storage/varliero/checkv_db/checkv-db-v1.5/
+checkv end_to_end ./viral_contig/viral_contigs_unique.fasta ./viral_contig/checkv -t 20
+
+#VirSorter2
+mkdir ./viral_contig/virsorter2_2
+virsorter run -w ./viral_contig/virsorter2_2 -i ./viral_contig/viral_contigs_unique.fasta --seqname-suffix-off --viral-gene-enrich-off --prep-for-dramv -j 20 --min-length 5000
+
+#clean-up viral contigs doing selection of high-quality contigs 
+#https://www.protocols.io/view/viral-sequence-identification-sop-with-virsorter2-5qpvoyqebg4o/v3
+./viral_genome_curation.pl
+#output: ./viral_contig/contig_keep.txt
+#output: ./viral_contig/contig_manual.txt
+#output: ./viral_contig/contig_discard.txt
+#Keep: 7609
+#Manual curation: 420
+#Discard: 2372
+./viral_genome_curation_retrieve.pl
+#Number of retrieved contigs: 7609
+#output: ./viral_contig/viral_contigs_unique_final.fasta
+#I am keeping only those obtained from keep category
+
+#try by vOTUs &gt; 5000 bp
+longMeta-summary -s ./viral_contig/viral_contigs_unique_final.fasta --assembly-output ./viral_contig/viral_contigs_unique_final_5000.fasta -min 5000 --length-output ./viral_contig/viral_contigs_unique_final_5000.txt
+# |  File                                             |  Contig number  |  Total bp  |  Mean   |  Median  |  Max length  |  Min length  |  n50   |  GC%  |
+# |  ./viral_contig/viral_contigs_unique_final.fasta  |  7607           |  77093915  |  10134  |  8200    |  441748      |  5000        |  9923  |  44   |</code></pre></div>
+
+<h4 id="toc_38">3.2.2. Annotate vOTU genes</h4>
+
+<div><pre><code class="language-bash">#run DRAMv
+DRAM-v.py annotate -i ./viral_contig/viral_contigs_unique_final_5000.fasta -o ./viral_contig/dramv --threads 80 --min_contig_size 5000
+
+#run eggnog mapper
+mkdir ./viral_contig/COG/
+emapper.py --cpu 60 -i ./viral_contig/dramv/genes.faa --data_dir ../eggnog_mapper_db/ --output cog --output_dir ./viral_contig/COG/</code></pre></div>
+
+<h4 id="toc_39">3.2.3. Remove plasmid contamination</h4>
+
+<div><pre><code class="language-bash">#PLASMe
+cd ./viral_contig
+python PLASMe.py ./viral_contig/viral_contigs_unique_final_5000.fasta viral_contigs_unique_plasmids.txt -d ../PLASMe/DB
+
+#genomad
+mkdir ./viral_contig/genomad_plasmid
+genomad end-to-end --cleanup --threads 20 viral_contig/viral_contigs_unique_final_5000.fasta viral_contig/genomad_plasmid ../genomad_db</code></pre></div>
+
+<h4 id="toc_40">3.8.2. Remove transposons</h4>
+
+<div><pre><code class="language-bash">#genes annotated as transposons (dram-v)
+grep -i &quot;transposase&quot; ./viral_contig/dramv/annotations.tsv &gt; ./viral_contig/dramv/votu_transposase_dram.txt
+grep -i &quot;transposon&quot; ./viral_contig/dramv/annotations.tsv &gt;&gt; ./viral_contig/dramv/votu_transposase_dram.txt
+wc -l ./viral_contig/dramv/votu_transposase_dram.txt
+#159
+
+#genes annotated as transposons (eggnog-mapper)
+grep -i &quot;transposase&quot; ./viral_contig/COG/cog.emapper.annotations &gt; ./viral_contig/COG/votu_transposase_cog.txt
+grep -i &quot;transposon&quot; ./viral_contig/COG/cog.emapper.annotations &gt;&gt; ./viral_contig/COG/votu_transposase_cog.txt
+
+##List of vOTUs to further investigate
+./check_final_votus.py
+#output: ./viral_contig/votu_manual_curation.txt
+
+#manually inspection of the file votu_manual_curation.txt to removed flagged vOTUs
+#output: ./viral_contig/votu_manual_curation_to_remove.txt
+
+#remove from contig file
+cd ./viral_contig
+./filter_fasta_votu.py -f viral_contigs_unique_final_5000.fasta -a votu_manual_curation_to_remove.txt -o viral_contigs_unique_final_5000_clean.fasta
+#output: ./viral_contigviral_contigs_unique_final_5000_clean.fasta
+
+#check statistics
+longMeta-summary -s viral_contig/viral_contigs_unique_final_5000_clean.fasta
+# |  File                                                        |  Contig number  |  Total bp  |  Mean   |  Median  |  Max length  |  Min length  |  n50   |  GC%  |
+# |  ./viral_contig/viral_contigs_unique_final_5000_clean.fasta  |  7474           |  76034924  |  10173  |  8199    |  441748      |  5000        |  9993  |  44   |
+ 
+#length distribution
+cd ./viral_contig/
+./fasta_length_windows.py viral_contigs_unique_final_5000_clean.fasta votu_length
+#output: ./viral_contig/votu_length_sequence_counts.txt
+#output: ./viral_contig/votu_length_bp_counts.txt</code></pre></div>
+
+<h3 id="toc_41">3.3. Viral taxonomy</h3>
+
+<h4 id="toc_42">3.3.1. blastp of proteins to RefSeq viral proteins</h4>
+
+<div><pre><code class="language-bash">#run
+mkdir ./viral_contig/blastp
+blastp -query ./viral_contig/dramv/genes.faa -db ../viruses_refseq/viral.1.protein.faa -evalue 1e-5 -num_threads 100 -out ./viral_contig/blastp/blastp_refseq_viral_taxonomy.m8 -outfmt 6
+
+#trim by bit-score (&gt;= 50)
+cd ./viral_contig/blastp/
+awk &#39;$12&gt;=50 {print}&#39; blastp_refseq_viral_taxonomy.m8 &gt; blastp_refseq_viral_taxonomy_filtered.m8
+
+#retrieve taxonomy
+./taxonomy_from_blastp.py
+#output: ./viral_contig/blastp/taxonomy_viruses_blastp.txt</code></pre></div>
+
+<h4 id="toc_43">3.3.2. blastn of genes to IMG/VR data</h4>
+
+<div><pre><code class="language-bash">#run
+mkdir ./viral_contig/blastn/
+blastn -query ./viral_contig/dramv/genes.fna -db ../IMG_VR_2022-12-19_7/IMGVR_all_nucleotides.fna -evalue 1e-5 -num_threads 100 -out ./viral_contig/blastn/blastn_IMGVR_viral_taxonomy.m8 -outfmt 6 -perc_identity 90  -qcov_hsp_perc 75
+
+#retrieve taxonomy
+./taxonomy_from_blastn.py
+#output: ./viral_contig/blastn/taxonomy_viruses_blastn.txt</code></pre></div>
+
+<h4 id="toc_44">3.3.3. MMSeqs2</h4>
+
+<div><pre><code class="language-bash">#run
+cd ../mmseqs2_db/
+mkdir ./viral_contig/mmseqs2
+mmseqs easy-search ./viral_contig/viral_contigs_unique_final_5000_clean.fasta vog ./viral_contig/mmseqs2/mmseq_vog_taxonomy.m8 tmp
+
+#trim by bit-score (&gt;= 50)
+cd ./viral_contig/mmseqs2
+awk &#39;$12&gt;=50 {print}&#39; mmseq_vog_taxonomy.m8 &gt; mmseq_vog_taxonomy_filtered.m8
+
+#retrieve taxonomy
+./taxonomy_from_mmseq.py
+#output: ./viral_contig/mmseqs2/taxonomy_viruses_mmseq.txt</code></pre></div>
+
+<h4 id="toc_45">3.3.4. geNomad</h4>
+
+<div><pre><code class="language-bash">#run
+mkdir ./viral_contig/genomad
+genomad end-to-end --cleanup --threads 20 ./viral_contig/viral_contigs_unique_final_5000_clean.fasta viral_contig/genomad ../genomad_db
+#by default it trims all viral contigs with a virus_score lower than 0.7
+
+#retrieve taxonomy
+./taxonomy_from_genomad.py
+#output: ./viral_contig/genomad/taxonomy_viruses_genomad.txt</code></pre></div>
+
+<h4 id="toc_46">3.3.5. Merge taxonomy</h4>
+
+<div><pre><code class="language-bash">#script to integrate information from blastp, blastn, mmseqs2 and genomad
+./taxonomy_viral_merge.py
+#output: ./viral_contig/votu_taxonomy.txt</code></pre></div>
+
+<h3 id="toc_47">3.4. Map reads to vOTUs</h3>
+
+<div><pre><code class="language-bash">#create mapping index
+bowtie2-build ./viral_contig/viral_contigs_unique_final_5000_clean.fasta ./viral_contig/vc_index
+
+#map
+mkdir ./viral_contig/mapped_reads
+
+#map fastq files to co-assembly
+cd ./01_trimmomatic/
+for file in a-*_R1.trimmed.pe.fastq.gz
+do
+name=${file%%_R1*}
+echo ${name}
+sbatch --export=INDEX=./viral_contig/vc_index,FOR=./01_trimmomatic/${name}_R1.trimmed.pe.fastq.gz,REV=./01_trimmomatic/${name}_R2.trimmed.pe.fastq.gz,OUT=./assembly/mapped_reads/${name} ./bowtie2.sh
+done
+
+#coverM
+cd ./viral_contig/mapped_reads
+coverm contig --bam-files a-BM1a_si.bam a-BM1b_si.bam a-BM2_si.bam a-BM3_si.bam a-BM4_si.bam a-BM5_si.bam a-BR1_si.bam a-BR2_si.bam a-BR3_si.bam a-BR4_si.bam a-BR5_si.bam a-VM1a_si.bam a-VM1b_si.bam a-VM3a_si.bam a-VM3b_si.bam a-VM4_si.bam a-VM5_si.bam a-VR1_si.bam a-VR2_si.bam a-VR3_si.bam a-VR4_si.bam a-VR5_si.bam -m mean covered_bases tpm --output-file vOTU_abundance_10.txt --min-covered-fraction 10 &gt; coverm_vOTU_10.txt 2&gt;&amp;1</code></pre></div>
+
+<h3 id="toc_48">3.5. AVGs</h3>
+
+<h4 id="toc_49">3.5.1. VirSorter2</h4>
+
+<div><pre><code class="language-bash">mkdir ./viral_contig/AMG/
+mkdir ./viral_contig/AMG/virsorter2
+virsorter run -w ./viral_contig/AMG/virsorter2 -i ./viral_contig/viral_contigs_unique_final_5000_clean.fasta --seqname-suffix-off --viral-gene-enrich-off --prep-for-dramv -j 20 --min-score 0</code></pre></div>
+
+<h4 id="toc_50">3.5.2. GENOMAD</h4>
+
+<div><pre><code class="language-bash">mkdir ./viral_contig/AMG/genomad
+cd ./viral_contig/AMG/
+genomad end-to-end --cleanup --threads 40 ./viral_contig/viral_contigs_unique_final_5000_clean.fasta ./viral_contig/AMG/genomad /storage/varliero/genomad_db --relaxed
+#by default genomad trims all viral contigs with a virus_score lower than 0.7 so &quot;--relaxed&quot;</code></pre></div>
+
+<h4 id="toc_51">3.5.3. Retrieve vOTUs within hallmark genes</h4>
+
+<div><pre><code class="language-bash">#get in which vOTUs are the hallmark genes
+cd ./viral_contig/AMG/
+./hallmark_genes_amgs.py
+#output: ./viral_contig/AMG/contig_hallmark_summary.tsv
+
+#manual curation for the provirus vOTUs predicted by genomad, new file is: contig_hallmark_summary_curated.tsv
+
+#list all genes to retrieve
+cd ./viral_contig/AMG/
+./extract_gene_headers_amgs.py contig_hallmark_summary.tsv gene_headers_amgs.tsv
+#output: gene_headers_amgs.tsv
+
+#get genes from COG 
+cd ./viral_contig/AMG/
+./summarize_cog_amgs.py gene_headers_amgs.tsv ../COG/cog.emapper.annotations annotation_amgs
+#Found 4621 target genes to annotate.
+#Wrote summary for 1312 unique COG terms to annotation_amgs.cog.txt.
+#Wrote summary for 536 unique descriptions to annotation_amgs.cog_description.txt.
+#Wrote gene-to-COG mapping for 1549 genes to annotation_amgs.gene_to_cog.txt.</code></pre></div>
+
+<h3 id="toc_52">3.6. Relations vOTUs VS hosts</h3>
+
+<h4 id="toc_53">3.6.1. vOTUs vs prokaryotes</h4>
+
+<h5 id="toc_54">3.6.1.1. Integrate MAGs into iphop database</h5>
+
+<div><pre><code class="language-bash">#rerun gtdb-Tk with de_novo_wf command
+mkdir ./MAG/iphop_gtdbtk/
+gtdbtk de_novo_wf --genome_dir ./MAG/medium_high_drep_95/dereplicated_genomes/ --bacteria --outgroup_taxon p__Spirochaetota --out_dir ./MAG/iphop_gtdbtk --cpus 40 --extension fa
+
+#integrate MAGs into iphop database
+iphop add_to_db --fna_dir ./MAG/medium_high_drep_95/dereplicated_genomes --gtdb_dir ./MAG/iphop_gtdbtk/ --out_dir ../iphop_db/Jun_2025_pub_rw_mags/ --db_dir ../iphop_db/Jun_2025_pub_rw/ -t 40</code></pre></div>
+
+<h5 id="toc_55">3.6.1.2. Run iphop</h5>
+
+<div><pre><code class="language-none">#subset the viral contig fasta file  (500 seqs each) to speed up iphop
+mkdir ./MAG/iphop/
+mkdir ./MAG/iphop/split
+seqkit split ./viral_contig/viral_contigs_unique_final_5000_clean.fasta -s 500 -O ./MAG/iphop/split
+
+#run iphop
+mkdir ./MAG/iphop/tmp/
+cd ./MAG/iphop/split/
+for i in $(seq -f &quot;%03g&quot; 1 15); do
+echo $i
+#make new folder for subsetted data
+mkdir ./MAG/iphop/tmp/${i}
+cd ./MAG/iphop/tmp/${i}
+iphop predict --fa_file ./MAG/iphop/split/viral_contigs_unique_final_5000_clean.part_${i}.fasta --db_dir ../iphop_db/Jun_2025_pub_rw_mags --out_dir . --num_threads 40
+done
+
+#merge results
+cd ./MAG/iphop/tmp
+cat */Host_prediction_to_genus_m90.csv &gt; ./MAG/iphop/Host_prediction_to_genus_m90_all.csv
+cat */Detailed_output_by_tool.csv &gt; ./MAG/iphop/Detailed_output_by_tool_all.csv</code></pre></div>
+
+<h5 id="toc_56">3.6.1.3. iphop exploration</h5>
+
+<div><pre><code class="language-none">#get only methods with a confidence score &gt;= 90
+cd ./MAG/iphop/
+./filter_iphop_methods.py -i Host_prediction_to_genus_m90_all.csv -o Host_prediction_to_genus_m90_filtered.csv
+
+#check in which way iphop assigned data
+./count_iphop_methods.py ./MAG/iphop/Host_prediction_to_genus_m90_filtered.csv
+#blast: 171
+#iPHoP-RF: 158
+#CRISPR: 76
+#RaFAH: 11
+
+#explore methods for bacillota and eukarytic viruses (files containing host-pairs to check where created manually:bacillota_votus.txt and eukaryotic_votus.txt)
+
+grep -Ff bacillota_votus.txt Host_prediction_to_genus_m90_filtered.csv &gt; Host_prediction_to_genus_m90_bacillota.csv
+#added &quot;Virus,AAI to closest RaFAH reference,Host genus,Confidence score,List of methods&quot; to CSV
+./count_iphop_methods.py ./MAG/iphop/Host_prediction_to_genus_m90_bacillota.csv
+#CRISPR: 39
+#blast: 1
+#iPHoP-RF: 25
+
+grep -Ff eukaryotic_votus.txt Host_prediction_to_genus_m90_filtered.csv &gt; Host_prediction_to_genus_m90_eukaryotes.csv
+#added &quot;Virus,AAI to closest RaFAH reference,Host genus,Confidence score,List of methods&quot; to CSV
+./count_iphop_methods.py ./MAG/iphop/Host_prediction_to_genus_m90_eukaryotes.csv
+#CRISPR: 23
+#blast: 4
+#iPHoP-RF: 13
+
+#get an extra column with number which will be used by R for plotting
+#Numbers&#39; legend
+#1 - iPHoP-RF or multiple
+#2 - only CRISPR
+#3 - only blast
+#4 -  only RaFAH
+./filter_iphop_methods_code.py -i Host_prediction_to_genus_m90_filtered.csv -o Host_prediction_to_genus_m90_filtered_code.csv</code></pre></div>
+
+<h4 id="toc_57">3.6.2. vOTUs vs eukaryotes</h4>
+
+<h5 id="toc_58">3.6.2.1. exclude vOTUs that matched eukaryotic contigs</h5>
+
+<div><pre><code class="language-bash">#check for perfect matches between votus and eukaryotic contigs, and remove votus that matched an eukaryotic contig to be conservative
+mkdir ./assembly/euk_vir
+cd ./assembly/euk_vir
+
+#build database
+makeblastdb -in ./viral_contig/viral_contigs_unique_final_5000_clean.fasta -dbtype nucl -out votu_db
+
+#run
+blastn -query ./assembly/final.contigs_1000_eukaryota.fa -outfmt 6 -db votu_db -out votus_vs_euk.m8 -evalue 1e-10 -num_threads 8 -perc_identity 100 -qcov_hsp_perc 100</code></pre></div>
+
+<h5 id="toc_59">3.6.2.2. protein matches</h5>
+
+<div><pre><code class="language-none">mkdir ./assembly/euk_vir_prot_matches
+
+#create diamond database
+cd /./assembly/euk_vir_prot_matches
+diamond makedb --in ./viral_contig/dramv/genes.faa -d votu_prot
+
+#run diamond
+cd ./assembly/euk_vir_prot_matches
+diamond blastp -d votu_prot.dmnd -q ./assembly/metaeuk_uniref/metaeuk_uniref.fas -o votu_euk.m8 -f 6 --id 90 --query-cover 90 --evalue 1e-10 --threads 20
+#767 queries aligned.
+
+#which taxonomies associated to matched proteins? With exclusion Euk-vir perfect matches
+cd ./assembly/euk_vir_prot_matches
+./euk_vir_prot_matches_taxonomy.py \
+  --m8 ./assembly/euk_vir_prot_matches/votu_euk.m8 \
+  --taxonomy ./assembly/cat_taxonomy_only_official_formatted_trimmed_eukaryota.csv \
+  --exclude_m8 ./assembly/euk_vir/votus_vs_euk.m8 \
+  --out_prefix ./assembly/euk_vir_prot_matches/votu_euk
+#output: ./assembly/euk_vir_prot_matchesvotu_euk.phylum_counts.csv
+#output: ./assembly/euk_vir_prot_matchesvotu_euk.class_counts.csv
+#output: ./assembly/euk_vir_prot_matchesvotu_euk.family_counts.csv
+
+#create pairwise matches for networks
+cd ./assembly/euk_vir_prot_matches
+./euk_vir_prot_matches_count.py \
+-i votu_euk.m8  \
+-e ./assembly/euk_vir/votus_vs_euk.m8 \
+-o votu_euk_counts.tsv \
+--euk-tax ./assembly/cat_taxonomy_only_official_formatted_trimmed_eukaryota.csv \
+--votu-tax ./viral_contig/votu_taxonomy_clean.txt
+#output: ./assembly/euk_vir_prot_matchesvotu_euk_counts.tsv</code></pre></div>
+
+<h5 id="toc_60">3.6.2.3. tRNA matches</h5>
+
+<div><pre><code class="language-none">mkdir ./assembly/euk_vir_trna_matches
+cd ./assembly/euk_vir_trna_matches
+
+#run aragorn
+aragorn -t -fasta -o votu_trna.txt ./viral_contig/viral_contigs_unique_final_5000_clean.fasta
+aragorn -t -fasta -o euk_trna.txt ./assembly/final.contigs_1000_eukaryota.fa
+
+#get fasta trna files
+./format_aragorn.py -i votu_trna.txt -o votu_trna.fasta -c1 contig_ -c2 contig_
+./format_aragorn.py -i euk_trna.txt -o euk_trna.fasta -c1 k143_ -c2 k143_
+
+#blastn
+makeblastdb -in votu_trna.fasta -dbtype nucl -out votu_trna_db
+
+#run
+blastn -query euk_trna.fasta -outfmt 6 -db votu_trna_db -out votus_vs_euk_trna.m8 -evalue 1e-10 -num_threads 8 -perc_identity 90 -qcov_hsp_perc 90
+
+#which taxonomies associated to matched proteins? With exclusion Euk-vir perfect matches
+./euk_vir_prot_matches_taxonomy_trna.py \
+  --m8 ./assembly/euk_vir_trna_matches/votus_vs_euk_trna.m8 \
+  --taxonomy ./assembly/cat_taxonomy_only_official_formatted_trimmed_eukaryota.csv \
+  --exclude_m8 ./assembly/euk_vir/votus_vs_euk.m8 \
+  --out_prefix ./assembly/euk_vir_trna_matches/votu_euk_trna
+#output: ./assembly/euk_vir_trna_matches/votu_euk_trna.phylum_counts.csv
+#output: ./assembly/euk_vir_trna_matches/votu_euk_trna.class_counts.csv
+#output: ./assembly/euk_vir_trna_matches/votu_euk_trna.family_counts.csv
+
+#create pairwise matches for networks
+cd ./assembly/euk_vir_trna_matches
+./euk_vir_trna_matches_count.py \
+-i votus_vs_euk_trna.m8  \
+-e ./assembly/euk_vir/votus_vs_euk.m8 \
+-o votu_euk_trna_counts.tsv \
+--euk-tax ./assembly/cat_taxonomy_only_official_formatted_trimmed_eukaryota.csv \
+--votu-tax ./viral_contig/votu_taxonomy_clean.txt
+#output: ./assembly/euk_vir_trna_matches/votu_euk_trna_counts.tsv</code></pre></div>
+
+<h3 id="toc_61">3.7. Lytic vs lysogenic</h3>
+
+<h4 id="toc_62">3.7.1. bacphlip</h4>
+
+<div><pre><code class="language-bash">cd ./viral_contig/
+bacphlip -i ./viral_contig/viral_contigs_unique_final_5000_clean.fna --multi_fasta --local_hmmsearch ../hmmsearch
+#output ./viral_contig/viral_contigs_unique_final_5000_clean.fna.bacphlip</code></pre></div>
+
+<h4 id="toc_63">3.7.2. Filter results</h4>
+
+<div><pre><code class="language-none">#filter
+cd ./viral_contig/
+./get_info_bacphlip.py -i viral_contigs_unique_final_5000_clean.fna.bacphlip -o bacphlip_results.txt -t 0.8 
+#Virulent viruses are 6922.
+#Temperate viruses are 168.
+#Unclassified viruses are 384.
+
+./get_info_bacphlip.py -i viral_contigs_unique_final_5000_clean.fna.bacphlip -o bacphlip_results.txt -t 0.9 
+Virulent viruses are 2679.
+Temperate viruses are 146.
+Unclassified viruses are 4649.
+
+./get_info_bacphlip_length.py -i viral_contigs_unique_final_5000_clean.fna.bacphlip -l viral_contigs_unique_final_5000.txt -o bacphlip_results_length.txt -t 0.9 -m 10000
+#Virulent viruses are 743.
+#Temperate viruses are 53.
+#Unclassified viruses are 984.
+#Filtered out due to length &lt; 10000: 5694.
+
+./get_info_bacphlip_length_taxonomy.py -i viral_contigs_unique_final_5000_clean.fna.bacphlip -l viral_contigs_unique_final_5000.txt -x votu_taxonomy_clean.txt -o bacphlip_results_length_taxonomy.txt -t 0.9 -m 10000
+#Virulent viruses are 343.
+#Temperate viruses are 51.
+#Unclassified viruses are 432.
+#Filtered out due to length &lt; 10000: 5694.
+
+./get_info_bacphlip_length_taxonomy.py -i viral_contigs_unique_final_5000_clean.fna.bacphlip -l viral_contigs_unique_final_5000.txt -x votu_taxonomy_clean.txt -o bacphlip_results_taxonomy.txt -t 0.9 -m 5000
+#Virulent viruses are 865.
+#Temperate viruses are 134.
+#Unclassified viruses are 1643.
+#Filtered out due to length &lt; 5000: 0.
+
+./get_info_bacphlip_checkv.py -i viral_contigs_unique_final_5000_clean.fna.bacphlip -o bacphlip_results_checkv_70.txt -q ./viral_contig/checkv/quality_summary.tsv -t 0.8 -c 70
+#Virulent viruses: 56
+#Temperate viruses: 16
+#Unclassified viruses: 28
+#Filtered out due to low completeness: 7374
+
+./get_info_bacphlip_checkv.py -i viral_contigs_unique_final_5000_clean.fna.bacphlip -o bacphlip_results_checkv_100.txt -q ./viral_contig/checkv/quality_summary.tsv -t 0.8 -c 100
+#Virulent viruses: 32
+#Temperate viruses: 6
+#Unclassified viruses: 12
+#Filtered out due to low completeness: 7424
+
+#get taxonomy
+awk &#39;NR==FNR &amp;&amp; $2==&quot;temperate&quot; { ids[$1]; next } $1 in ids&#39; bacphlip_results_checkv_100.txt votu_taxonomy_clean.txt &gt; temperate_taxonomy.txt
+awk &#39;NR==FNR &amp;&amp; $2==&quot;virulent&quot; { ids[$1]; next } $1 in ids&#39; bacphlip_results_checkv_100.txt votu_taxonomy_clean.txt &gt; virulent_taxonomy.txt</code></pre></div>
+
+<h3 id="toc_64">3.8. Create vOTU table</h3>
+
+<div><pre><code class="language-none">./create_final_votu_table.py
+#output: ./viral_contig/viral_contig_metadata_final.tsv</code></pre></div>
+
+<h2 id="toc_65">4. Plasmids</h2>
+
+<h3 id="toc_66">4.1. PLASME</h3>
+
+<div><pre><code class="language-bash">mkdir ./assembly/plasmids
+cd ./assembly/plasmids
+
+export CUDA_VISIBLE_DEVICES=&quot;&quot;
+python PLASMe.py ./assembly/final.contigs_1000_prokaryota.fa assembly_prokaryota_plasme.txt -d ../PLASMe/DB -t 30 -c 0.8 -i 0.7
+grep -c &quot;^&gt;&quot; assembly_prokaryota_plasme.txt
+#3675
+
+python PLASMe.py ./assembly/final.contigs_1000_eukaryota.fa assembly_eukaryota_plasme.txt -d ../PLASMe/DB -t 30 -c 0.8 -i 0.7
+grep -c &quot;^&gt;&quot; assembly_eukaryota_plasme.txt
+#6</code></pre></div>
+
+<h3 id="toc_67">4.2. GENOMAD</h3>
+
+<div><pre><code class="language-bash">mkdir ./assembly/plasmids/genomad_prokaryota
+mkdir ./assembly/plasmids/genomad_eukaryota
+
+genomad end-to-end --cleanup --threads 50 ./assembly/final.contigs_1000_prokaryota.fa ./assembly/plasmids/genomad_prokaryota ../genomad_db
+grep -c &quot;^&gt;&quot; ./assembly/plasmids/genomad_prokaryota/final.contigs_1000_prokaryota_summary/final.contigs_1000_prokaryota_plasmid.fna
+#1265</code></pre></div>
+
+<h3 id="toc_68">4.3. Merge and clean-up plasmid contigs</h3>
+
+<div><pre><code class="language-none">#prokaryota
+cd ./assembly/plasmids
+./compare_fasta_headers.py ./genomad_prokaryota/final.contigs_1000_prokaryota_summary/final.contigs_1000_prokaryota_plasmid.fna ./assembly_prokaryota_plasme.txt assembly_prokaryota_plasmids
+#Only file1: 1196 sequences → assembly_prokaryota_plasmids_one.fasta
+#Only file2: 3606 sequences → assembly_prokaryota_plasmids_two.fasta
+#Both files: 69 sequences → assembly_prokaryota_plasmids_both.fasta
+#merge all
+cat assembly_prokaryota_plasmids_one.fasta assembly_prokaryota_plasmids_two.fasta assembly_prokaryota_plasmids_both.fasta &gt; assembly_prokaryota_all.fasta
+
+#trim plasmids by lenght (1000 bp)
+longMeta-summary -s ./assembly/plasmids/assembly_prokaryota_all.fasta
+# |  File                                               |  Contig number  |  Total bp  |  Mean  |  Median  |  Max length  |  Min length  |  n50   |  GC%  |
+# |  ./assembly/plasmids/assembly_prokaryota_all.fasta  |  4871           |  18006209  |  3696  |  3166    |  138328      |  1000        |  5482  |  56   |
+longMeta-summary -s ./assembly/plasmids/assembly_prokaryota_all.fasta -min 1000 --assembly-output ./assembly/plasmids/assembly_prokaryota_all_1000.fasta
+# |  File                                               |  Contig number  |  Total bp  |  Mean  |  Median  |  Max length  |  Min length  |  n50   |  GC%  |
+# |  ./assembly/plasmids/assembly_prokaryota_all.fasta  |  4871           |  18006209  |  3696  |  3166    |  138328      |  1000        |  5482  |  56   |
+
+
+#check that no viruses in plasmids
+cd ./assembly/plasmids/
+
+#build database
+makeblastdb -in assembly_prokaryota_all_1000.fasta -dbtype nucl -out plasmids_db
+
+#run
+blastn -query ./viral_contig/viral_contigs_unique_final_5000_clean.fasta -outfmt 6 -db plasmids_db -out viruses_vs_plasmids.tsv -evalue 1e-10 -num_threads 8 -perc_identity 80 -qcov_hsp_perc 70
+#I got 5 matches: contig_585, contig_1431, contig_1606, contig_1696 and contig_2707
+#Investigated manually and all quite clearly viral, so I wanna remove them from plasmid dataset; contig_1696 is the only one with plasmid signatures.. but removed anyway to be sure
+#Remove: k143_4761253, k143_860539, k143_4020893, k143_1225732, k143_1314102
+
+cd ./assembly/plasmids/
+./remove_sequences.py --sequence &quot;k143_4761253,k143_860539,k143_4020893,k143_1225732,k143_1314102&quot; --fasta assembly_prokaryota_all_1000.fasta --output assembly_prokaryota_all_clean.fasta 
+grep -c &quot;^&gt;&quot; assembly_prokaryota_all*.fasta
+#assembly_prokaryota_all_1000.fasta:4871
+#assembly_prokaryota_all_clean.fasta:4866
+#assembly_prokaryota_all.fasta:4871</code></pre></div>
+
+<h3 id="toc_69">4.4. Plasmid functional annotation</h3>
+
+<div><pre><code class="language-none">#cog on prokaryotic assembly
+mkdir ./assembly/COG_p
+emapper.py --cpu 50 -i ./assembly/dram_final/genes.annotated.faa --data_dir ../eggnog_mapper_db/ --output cog --output_dir ./assembly/COG_p --dbmem
+
+##count how many cogs in plasmids
+./cog_counts_plasmids_assembly.py --emapper ./assembly/COG_p/cog.emapper.annotations --fasta ./assembly/plasmids/assembly_prokaryota_all_clean.fasta --output ./assembly/plasmids/COG_counts_assembly_plasmids
+#output: ./assembly/plasmids/COG_counts_assembly_plasmids_by_COG.tsv
+#output: ./assembly/plasmids/COG_counts_assembly_plasmids_by_Category.tsv
+#output: ./assembly/plasmids/COG_counts_assembly_plasmids_by_Description.tsv</code></pre></div>
+
+<h3 id="toc_70">4.5. Identify plasmids with conjugation signals</h3>
+
+<div><pre><code class="language-bash">#retrieve contigs
+#./assembly/plasmids/COG_plasmid_conjugative.txt is a list of conjugative elements found in plasmids (manually created) 
+cd ./assembly/plasmids/
+./filter_contigs_by_cog_conjugation.py \
+  --fasta ./assembly/plasmids/assembly_prokaryota_all_clean.fasta \
+  --cog-list ./assembly/plasmids/COG_plasmid_conjugative.txt \
+  --emapper ./assembly/COG_p/cog.emapper.annotations \
+  --output conjugation_plasmids.txt
+ #Number of selected contigs: 286
+ #output: conjugation_plasmids.txt</code></pre></div>
+
+<h2 id="toc_71">5. Mobile genetic elements</h2>
+
+<h3 id="toc_72">5.1. Look for transposases</h3>
+
+<div><pre><code class="language-bash">mkdir ./MAG/GRF/
+cd ./MAG/GRF/
+
+#get COG-related transposase genes
+cd ../eggnog_mapper_db
+wget http://eggnog5.embl.de/download/eggnog_5.0/e5.og_annotations.tsv
+#then manual curation to obtain only transposase COGs, final file is ../eggnog_mapper_db/e5.og_annotations_transposases.txt
+
+#retrieve MAG COG annotation associated to transposase genes
+cd ./MAG/GRF/
+./get_manually_checked_eggnog_all.py ../eggnog_mapper_db/e5.og_annotations_transposases.txt ./MAG/COG/cog.emapper.annotations transposases.emapper_manually_curated.annotations
+#Loaded 9786 transposase codes.
+#Saved 4501 matched rows to transposases.emapper_manually_curated.annotations
+#output: transposases.emapper_manually_curated.annotations</code></pre></div>
+
+<h3 id="toc_73">5.2. Form transposase clusters, and annotation</h3>
+
+<div><pre><code class="language-none">cd ./MAG/GRF/
+./find_transposase_clusters.py ./MAG/dram_drep/genes.gff transposases.emapper_manually_curated.annotations transposase_clusters
+#output: ./MAG/GRF/transposase_clusters_mags.txt
+#output: ./MAG/GRF/transposase_clusters_contigs.txt
+
+#look for downstream and upstream genes from transposase clusters
+cd ./MAG/GRF/
+./annotate_cluster_flanks.py transposase_clusters_contigs.txt ./MAG/dram_drep/genes.gff transposase_clusters_flanks
+#output: ./MAG/GRF/transposase_clusters_flanks.txt
+#N.B. genes are counted in a window if they fall inside; so if gene spanning 3 windows, it will be counted three times.
+
+#annotations to them
+./cog_flank_matrix.py ./MAG/COG/cog.emapper.annotations ./MAG/GRF/transposase_clusters_flanks.txt ./MAG/GRF/transposase_clusters_flanks_counts
+#output: ./MAG/GRF/transposase_clusters_flanks_counts.cog_category.txt
+#output: ./MAG/GRF/transposase_clusters_flanks_counts.cog.txt
+#Loaded 309967 COG categories.
+#Loaded 309967 COGs.
+#Loaded 127935 COG descriptions.
+
+#calculate frequency of COG_cat and COG in general
+cd ./MAG/GRF/
+./count_cogs.py -i ./MAG/COG/cog.emapper.annotations -p total</code></pre></div>
+
+<h3 id="toc_74">5.3. mega-clusters (indication of composite transposons)</h3>
+
+<div><pre><code class="language-none">#get mega-clusters 
+cd ./MAG/GRF/
+./megaclusters.py transposase_clusters_contigs.txt transposase_megaclusters_contigs_0_10000.txt 0 10000
+#Saved 287 megaclusters to transposase_megaclusters_contigs_0_10000.txt
+./megaclusters.py transposase_clusters_contigs.txt transposase_megaclusters_contigs_10000_15000.txt 10000 15000
+#Saved 33 megaclusters to transposase_megaclusters_contigs_10000_15000.txt
+
+#get new gff file
+cd ./MAG/GRF/
+#get gff annotation part
+./extract_megacluster_gff.py ./MAG/dram_drep/genes.gff transposase_megaclusters_contigs_10000_15000.txt filtered_genes_megaclusters.gff -w 2000
+#output: ./MAG/GRF/filtered_genes_megaclusters.gff 
+#N.B. 2000 is the window before and after megacluster
+#get gff sequence part
+./extract_gff_seqs_megacluster.py filtered_genes_megaclusters.gff ./MAG/all_mags.fasta all_mags_megaclusters.fasta
+#output: ./MAG/GRF/all_mags_megaclusters.fasta
+#merge
+nano header.txt
+write:
+&quot;
+##
+##FASTA
+&quot;
+cat ./MAG/GRF/filtered_genes_megaclusters.gff header.txt ./MAG/GRF/all_mags_megaclusters.fasta &gt; ./MAG/GRF/filtered_genes_megaclusters_fasta.gff
+rm header.txt
+
+#Get annotation with eggNOG to see if better
+./eggnog2gff_megaclusters.py filtered_genes_megaclusters_fasta.gff ./MAG/COG/cog.emapper.annotations filtered_genes_megaclusters_fasta_eggnog_cog.gff filtered_genes_megaclusters_fasta_eggnog_description.gff
+#output: ./MAG/GRF/filtered_genes_megaclusters_fasta_eggnog_cog.gff
+#output: ./MAG/GRF/filtered_genes_megaclusters_fasta_eggnog_description.gff
+
+#Get annotation with eggNOG to see if better (added category and &#39;transposase&#39;)
+cd ./MAG/GRF/
+./eggnog2gff_megaclusters_cat.py filtered_genes_megaclusters_fasta.gff ./MAG/COG/cog.emapper.annotations ./MAG/GRF/transposases.emapper_manually_curated.annotations filtered_genes_megaclusters_fasta_eggnog_description_cat.gff
+#output: ./MAG/GRF/filtered_genes_megaclusters_fasta_eggnog_description_cat.gff</code></pre></div>
+
+<h2 id="toc_75">6. VFs and toxin-related genes</h2>
+
+<h3 id="toc_76">6.1. MAGs</h3>
+
+<h4 id="toc_77">6.1.1. PathoFact</h4>
+
+<div><pre><code class="language-bash">mkdir ./MAG/pathofact
+
+#copy genomes to a folder and format
+cp ./MAG/medium_high_drep_95/dereplicated_genomes/* ./MAG/pathofact
+for f in *.fa; do mv &quot;$f&quot; &quot;${f%.fa}.fna&quot;; done
+
+#create config.yaml files, from config1.yaml to config8.yaml
+#here are the bins for each config file
+#1 (PathoFact_MAGs_1): &quot;bin_2&quot;, &quot;bin_6&quot;, &quot;bin_9&quot;, &quot;bin_10&quot;, &quot;bin_12&quot;, &quot;bin_13&quot;, &quot;bin_17&quot;, &quot;bin_18&quot;, &quot;bin_19&quot;
+#2 (PathoFact_MAGs_2): &quot;bin_20&quot;, &quot;bin_22&quot;, &quot;bin_23&quot;, &quot;bin_24&quot;, &quot;bin_26&quot;, &quot;bin_27&quot;, &quot;bin_28&quot;, &quot;bin_29&quot;, &quot;bin_30&quot;, &quot;bin_31&quot;, &quot;bin_32&quot;, &quot;bin_33&quot;, &quot;bin_35&quot;, &quot;bin_38&quot;, &quot;bin_39&quot; 
+#3 (PathoFact_MAGs_3): &quot;bin_40&quot;, &quot;bin_44&quot;, &quot;bin_45&quot;, &quot;bin_47&quot;, &quot;bin_48&quot;, &quot;bin_49&quot;, &quot;bin_50&quot;, &quot;bin_51&quot;, &quot;bin_52&quot;, &quot;bin_53&quot;, &quot;bin_55&quot;, &quot;bin_56&quot;, &quot;bin_58&quot;, &quot;bin_59&quot;
+#4 (PathoFact_MAGs_4): &quot;bin_60&quot;, &quot;bin_61&quot;, &quot;bin_63&quot;, &quot;bin_64&quot;, &quot;bin_65&quot;, &quot;bin_66&quot;, &quot;bin_67&quot;, &quot;bin_68&quot;, &quot;bin_69&quot;, &quot;bin_70&quot;, &quot;bin_71&quot;, &quot;bin_72&quot;, &quot;bin_73&quot;, &quot;bin_74&quot;, &quot;bin_76&quot;, &quot;bin_77&quot;, &quot;bin_79&quot;
+#5 (PathoFact_MAGs_5): &quot;bin_81&quot;, &quot;bin_82&quot;, &quot;bin_83&quot;, &quot;bin_84&quot;, &quot;bin_86&quot;, &quot;bin_87&quot;, &quot;bin_89&quot;, &quot;bin_92&quot;, &quot;bin_93&quot;, &quot;bin_95&quot;, &quot;bin_96&quot;, &quot;bin_97&quot;, &quot;bin_99&quot;
+#6 (PathoFact_MAGs_6): &quot;bin_100&quot;, &quot;bin_101&quot;, &quot;bin_102&quot;, &quot;bin_104&quot;, &quot;bin_105&quot;, &quot;bin_106&quot;, &quot;bin_107&quot;, &quot;bin_108&quot;, &quot;bin_109&quot;, &quot;bin_110&quot;, &quot;bin_111&quot;, &quot;bin_112&quot;, &quot;bin_113&quot;, &quot;bin_115&quot;, &quot;bin_117&quot;
+#7 (PathoFact_MAGs_7): &quot;bin_120&quot;, &quot;bin_121&quot;, &quot;bin_122&quot;, &quot;bin_123&quot;, &quot;bin_126&quot;, &quot;bin_128&quot;, &quot;bin_129&quot;, &quot;bin_131&quot;, &quot;bin_132&quot;, &quot;bin_133&quot;, &quot;bin_134&quot;, &quot;bin_136&quot;, &quot;bin_137&quot;, &quot;bin_138&quot;, &quot;bin_139&quot;
+#8 (PathoFact_MAGs_8): &quot;bin_143&quot;, &quot;bin_144&quot;, &quot;bin_145&quot;, &quot;bin_146&quot;, &quot;bin_147&quot;, &quot;bin_148&quot;, &quot;bin_149&quot;, &quot;bin_150&quot;, &quot;bin_151&quot;, &quot;bin_154&quot;, &quot;bin_155&quot;, &quot;bin_156&quot;, &quot;bin_162&quot;, &quot;bin_164&quot;
+
+#run PathoFact
+cd ../PathoFact
+snakemake -s Snakefile --use-conda --reason --cores 1 -p  --configfile config1.yaml
+snakemake -s Snakefile --use-conda --reason --cores 1 -p  --configfile config2.yaml
+snakemake -s Snakefile --use-conda --reason --cores 1 -p  --configfile config3.yaml
+snakemake -s Snakefile --use-conda --reason --cores 1 -p  --configfile config4.yaml
+snakemake -s Snakefile --use-conda --reason --cores 1 -p  --configfile config5.yaml
+snakemake -s Snakefile --use-conda --reason --cores 1 -p  --configfile config6.yaml
+snakemake -s Snakefile --use-conda --reason --cores 1 -p  --configfile config7.yaml
+snakemake -s Snakefile --use-conda --reason --cores 1 -p  --configfile config8.yaml
+
+#merge files from parallel runs
+
+#merge all PathoFact_bin_*_predictions.tsv from all subfolders
+./merge_pathofact_prediction.py
+#output: ./MAG/pathofact/PathoFact_predictions.tsv
+
+#merge all *gff from all subfolders
+./merge_pathofact_gff.py
+#output: ./MAG/pathofact/PathoFact.gff
+
+#merge all Toxin_gene_library_bin_*_report.tsv from all subfolders + insert complete complete names
+./merge_pathofact_toxins.py
+#output: ./MAG/pathofact/PathoFact_toxins.tsv</code></pre></div>
+
+<h4 id="toc_78">6.1.2. Explore VFs</h4>
+
+<div><pre><code class="language-none">#look at 20kb up and downstream from transposase clusters for VIRULENCE
+./analyze_pathogenic_flanks_virulence.py ./MAG/GRF/transposase_clusters_flanks.txt PathoFact_predictions.tsv PathoFact.gff flank_virulence_summary.tsv flank_virulence_intervals.tsv
+#output: flank_virulence_summary.tsv
+#output: flank_virulence_intervals.tsv
+
+#count how many for distance windows for VIRULENCE
+cd ./MAG/pathofact/
+./count_protein_intervals.py flank_virulence_intervals.tsv flank_virulence_interval_counts.tsv
+#output: flank_virulence_interval_counts.tsv
+
+#count how many unique proteins within +/- 10 kb from transposase for VIRULENCE
+cd ./MAG/pathofact/
+./count_protein_intervals_unique.py flank_virulence_intervals.tsv
+#Found 4627 unique proteins within -10kb..+10kb</code></pre></div>
+
+<h4 id="toc_79">6.1.3. Explore toxin-related genes</h4>
+
+<div><pre><code class="language-none">#look at 20kb up and downstream from transposase clusters for TOXIN
+./analyze_pathogenic_flanks_toxin.py ./MAG/GRF/transposase_clusters_flanks.txt PathoFact_predictions.tsv PathoFact.gff flank_toxin_summary.tsv flank_toxin_intervals.tsv
+#output: flank_toxin_summary.tsv
+#output: flank_toxin_intervals.tsv
+
+#count how many for distance windows for TOXIN
+cd ./MAG/pathofact/
+./count_protein_intervals.py flank_toxin_intervals.tsv flank_toxin_interval_counts.tsv
+#output: flank_toxin_interval_counts.tsv
+
+#count how many unique proteins within +/- 10 kb from transposase for TOXIN
+cd ./MAG/pathofact/
+./count_protein_intervals_unique.py flank_toxin_intervals.tsv
+#Found 456 unique proteins within -10kb..+10kb
+
+#uniform information I have on toxins
+#For proteins when more then one annotation keep only one; give priority to PFAM &gt; KEGG &gt; TIGR &gt; SwissPro
+grep -c &quot;PFAM&quot; PathoFact_toxins.tsv
+5309
+grep -c &quot;KEGG&quot; PathoFact_toxins.tsv
+2056
+grep -c &quot;TIGR&quot; PathoFact_toxins.tsv
+238
+grep -c &quot;SwissProt&quot; PathoFact_toxins.tsv
+1
+./get_unique_pathoFact_toxins.py PathoFact_toxins.tsv PathoFact_toxins_unique.tsv
+#output: ./MAG/pathofact/PathoFact_toxins_unique.tsv
+
+#get information of transposase clusters by toxins
+cd ./MAG/pathofact/
+./toxin_flank_matrix.py flank_toxin_intervals.tsv PathoFact_toxins_unique.tsv toxin_counts_by_NAME.tsv toxin_counts_by_Description.tsv
+#output: toxin_counts_by_NAME.tsv
+#output: toxin_counts_by_Description.tsv
+
+#count how many genes by toxin
+./count_total_toxins.py -a PathoFact_toxins_unique.tsv -g PathoFact.gff -o toxin_pathoFact_total_abundance
+#output: toxin_pathoFact_total_abundance_by_NAME.tsv
+#output: toxin_pathoFact_total_abundance_by_Description.tsv
+
+#count how many for distance windows - total
+./annotate_cluster_flanks_20kb.py ./MAG/GRF/transposase_clusters_contigs.txt ./MAG/dram_drep/genes.gff transposase_clusters_flanks_20kb
+#output: transposase_clusters_flanks_20kb.txt
+./count_protein_intervals_total.py transposase_clusters_flanks_20kb.txt flank_virulence_intervals.tsv flank_interval_counts_total.tsv
+#output: flank_interval_counts_total.tsv
+#tried also with 50 kb inverval but nothing interesting ./annotate_cluster_flanks_50kb.py so deleted</code></pre></div>
+
+<h3 id="toc_80">6.2. vOTUs</h3>
+
+<h4 id="toc_81">6.2.1. PathoFact</h4>
+
+<div><pre><code class="language-none">cd ../PathoFact
+cp ./viral_contig/viral_contigs_unique_final_5000_clean.fasta ./viral_contig/viral_contigs_unique_final_5000_clean.fna
+snakemake -s Snakefile --use-conda --reason --cores 1 -p  --configfile config_viruses.yaml</code></pre></div>
+
+<h4 id="toc_82">6.2.2. Explore VFs</h4>
+
+<div><pre><code class="language-none">##B. VFs
+cd ./viral_contig/PathoFact_viruses/
+./count_vfs.py ./PathoFact_report/PathoFact_viral_contigs_unique_final_5000_clean_predictions.tsv
+#Virulence_prediction == pathogenic 7254
+#Virulence_confidence_level counts:
+#Level  Count
+#4: Potential Non-secreted Virulence factor 44635
+#-  34537
+#2: Non-secreted Virulence factor   6655
+#3: Potential Secreted Virulence factor 3063
+#1: Secreted Virulence factor   599</code></pre></div>
+
+<h4 id="toc_83">6.2.3. Explore toxin-related genes</h4>
+
+<div><pre><code class="language-none">#get unique toxins
+cd ./viral_contig/PathoFact_viruses/
+./get_unique_pathoFact_toxins_original.py ./PathoFact_report/Toxin_gene_library_viral_contigs_unique_final_5000_clean_report.tsv PathoFact_toxins_unique.tsv
+
+wc -l ./PathoFact_report/Toxin_gene_library_viral_contigs_unique_final_5000_clean_report.tsv
+#194 ./Toxin_gene_library_viral_contigs_unique_final_5000_clean_report.tsv
+wc -l PathoFact_toxins_unique.tsv
+#187 PathoFact_toxins_unique.tsv
+
+#count toxins by description field
+cd ./viral_contig/PathoFact_viruses/
+./count_toxin_description.py PathoFact_toxins_unique.tsv PathoFact_toxins_unique_counts.tsv
+#output: PathoFact_toxins_unique_counts.tsv</code></pre></div>
+
+<h3 id="toc_84">6.3. Plasmids</h3>
+
+<h4 id="toc_85">6.3.1. PathoFact</h4>
+
+<div><pre><code class="language-bash">cd ../PathoFact
+cp ./assembly/plasmids/assembly_prokaryota_all_clean.fasta ./assembly/plasmids/assembly_prokaryota_all_clean.fna
+snakemake -s Snakefile --use-conda --reason --cores 1 -p  --configfile config_plasmids_p.yaml</code></pre></div>
+
+<h4 id="toc_86">6.3.2. Explore VFs</h4>
+
+<div><pre><code class="language-none">cd ./assembly/plasmids/PathoFact_plasmids_p/
+./count_vfs.py ./PathoFact_report/PathoFact_assembly_prokaryota_all_clean_predictions.tsv
+#Virulence_prediction == pathogenic 3046
+#Virulence_confidence_level counts:
+#Level  Count
+#-  8283
+#4: Potential Non-secreted Virulence factor 8263
+#2: Non-secreted Virulence factor   2303
+#3: Potential Secreted Virulence factor 1246
+#1: Secreted Virulence factor   743</code></pre></div>
+
+<h4 id="toc_87">6.3.3. Explore toxin-related genes</h4>
+
+<div><pre><code class="language-none">#get unique toxins
+cd ./assembly/plasmids/PathoFact_plasmids_p/
+./get_unique_pathoFact_toxins_original.py ./PathoFact_report/Toxin_gene_library_assembly_prokaryota_all_clean_report.tsv PathoFact_toxins_unique.tsv
+
+wc -l ./PathoFact_report/Toxin_gene_library_assembly_prokaryota_all_clean_report.tsv
+#435 ./PathoFact_report/Toxin_gene_library_assembly_prokaryota_all_clean_report.tsv
+wc -l PathoFact_toxins_unique.tsv
+#394 PathoFact_toxins_unique.tsv
+
+#count toxins by description field
+cd ./assembly/plasmids/PathoFact_plasmids_p/
+./count_toxin_description.py PathoFact_toxins_unique.tsv PathoFact_toxins_unique_counts.tsv
+#output: PathoFact_toxins_unique_counts.tsv</code></pre></div>
+
+<h2 id="toc_88">7. AMRs</h2>
+
+<h3 id="toc_89">7.1. MAGs</h3>
+
+<h4 id="toc_90">7.1.1. AMRFinderPlus</h4>
+
+<div><pre><code class="language-none">cd ./MAG/dram_drep
+amrfinder -p genes.faa --plus -o ./MAG/amrfinder.txt --threads 30
+grep -c &quot;AMR&quot; ./MAG/amrfinder.txt</code></pre></div>
+
+<h4 id="toc_91">7.1.2. Combine PathoFact and AMRFinderPlus results</h4>
+
+<div><pre><code class="language-bash">./match_args.py
+#Total DRAM proteins: 362268
+#AMR proteins matched in DRAM: 46
+#Total PathoFact proteins: 361530
+#PathoFact ARG proteins matched: 285
+#Number of common proteins: 8
+#Common proteins: [&#39;NODE_739_bin_162_592_1224&#39;, &#39;k143_1928442_bin_19_77872_79029&#39;, &#39;NODE_184_bin_100_1156_1593&#39;, &#39;k143_1928442_bin_19_82179_83639&#39;, &#39;k143_1928442_bin_19_79033_82182&#39;, &#39;k143_4301285_bin_154_3315_4220&#39;, &#39;k143_3089219_bin_65_5473_6378&#39;, &#39;k143_1437867_bin_120_2250_3152&#39;]
+#Merged file written to: ./MAG/pathofact/merged_amrfinder_pathofact_ARGs.tsv
+#Total merged proteins: 323
+
+#then I have merged_amrfinder_pathofact_ARGs_curated.xls and  merged_amrfinder_pathofact_ARGs_curated.txt where I merged nomenclature from pathofact and amrfinder. In v3 folder. But merged_amrfinder_pathofact_ARGs_curated.txt to server</code></pre></div>
+
+<h4 id="toc_92">7.1.3. Look if those genes close to transposases, also by specific categories</h4>
+
+<div><pre><code class="language-bash">cd ./MAG/pathofact
+./analyze_pathogenic_flanks_arg.py ./MAG/GRF/transposase_clusters_flanks.txt merged_amrfinder_pathofact_ARGs_curated.txt flank_arg_summary.tsv flank_arg_intervals.tsv
+#output: flank_arg_summary.tsv
+#output: flank_arg_intervals.tsv
+#output: args_within_10kb.tsv
+
+#19 proteins; but in reality is 18; remove k143_778860_bin_52_7329_7412 because annotated both as transposases and args</code></pre></div>
+
+<h4 id="toc_93">7.1.4. Table for paper</h4>
+
+<div><pre><code class="language-bash">#counts x category x MAG
+cd ./MAG/pathofact/
+./count_args2bins.py merged_amrfinder_pathofact_ARGs_curated.txt arg2bin_counts
+#output: arg2bin_counts_bin_total_counts.tsv
+#output: arg2bin_counts_bin_Resistance_mechanism.tsv
+#output: arg2bin_counts_bin_AMR_sub_class.tsv
+#output: arg2bin_counts_bin_AMR_category.tsv
+
+#counts x category
+cd ./MAG/pathofact/
+./count_args.py merged_amrfinder_pathofact_ARGs_curated.txt arg_counts
+#output: arg_counts_Resistance_mechanism_counts.tsv
+#output: arg_counts_AMR_sub_class_counts.tsv
+#output: arg_counts_AMR_category_counts.tsv
+
+#info on how many close to transposases
+#this can be found at ./MAG/pathofact/args_within_10kb.tsv              </code></pre></div>
+
+<h3 id="toc_94">7.2. vOTUs</h3>
+
+<div><pre><code class="language-none">#run amrfinder
+cd ./viral_contig/dramv/
+amrfinder -p genes.faa --plus -o ./viral_contig/amrfinder.txt --threads 10
+grep -c &quot;AMR&quot; ./viral_contig/amrfinder.txt
+#0!!
+
+#check pathofact results
+cd ./viral_contig/PathoFact_viruses/
+./count_args_original.py ./PathoFact_report/PathoFact_viral_contigs_unique_final_5000_clean_predictions.tsv args
+#output: args_Resistance_mechanism_counts.tsv
+#output: args_AMR_sub_class_counts.tsv
+#output: args_AMR_category_counts.tsv
+#output: args_ARG_counts.tsv</code></pre></div>
+
+<h3 id="toc_95">7.3. Plasmids</h3>
+
+<div><pre><code class="language-none">#run amrfinder
+./assembly/plasmids
+amrfinder -p genes.annotated_plasmids.faa --plus -o ./assembly/plasmids/amrfinder.txt --threads 30
+grep -c &quot;AMR&quot; ./assembly/plasmids/amrfinder.txt
+#1
+
+#check pathofact results
+cd ./assembly/plasmids/PathoFact_plasmids_p/
+./count_args_original.py ./PathoFact_report/PathoFact_assembly_prokaryota_all_clean_predictions.tsv args
+#output: args_Resistance_mechanism_counts.tsv
+#output: args_AMR_sub_class_counts.tsv
+#output: args_AMR_category_counts.tsv
+#output: args_ARG_counts.tsv</code></pre></div>
+
+<h2 id="toc_96">8. MGIs</h2>
+
+<h3 id="toc_97">8.1. Call MGIs</h3>
+
+<div><pre><code class="language-bash">#merge reads
+zcat ./01_trimmomatic/a-*_R1.trimmed.pe.fastq.gz &gt; all_R1.fastq
+zcat ./01_trimmomatic/a-*_R2.trimmed.pe.fastq.gz &gt; all_R2.fastq
+
+#bowtie2
+mkdir ./MAG/MGI
+sbatch --export=INDEX=./MAG/all_mags_index,FOR=all_R1.fastq,REV=all_R2.fastq,OUT=./MAG/MGI/reads2mags ./bowtie2.sh
+#N.B. modify bowtie2.sh not to remove sam and not to create bam
+
+#get high quality matches (mismatches and indels)
+cd ./MAG/MGI
+grep &quot;^@SQ\s&quot; reads2mags.sam &gt; reads2mags_qc.sam 
+grep &quot;NM:i:0\s&quot; reads2mags.sam &gt;&gt; reads2mags_qc.sam
+grep &quot;NM:i:1\s&quot; reads2mags.sam &gt;&gt; reads2mags_qc.sam 
+#in this way I allow a maximum of 1 mismatch
+
+#sam to bam and sort
+cd ./MAG/MGI
+samtools sort reads2mags_qc.sam -o reads2mags_qc.bam
+samtools index reads2mags_qc.bam
+
+#run genomecov
+cd ./MAG/MGI/
+bedtools genomecov -ibam reads2mags_qc.bam -bga &gt; reads2mags_qc.bed
+
+#retrieve possible MGI positions
+cd ./MAG/MGI/
+./screen_bed_mgi.py -i reads2mags_qc.bed -con coverage_contig.txt -mag coverage_mag.txt -mgi mgi_positions.txt
+#output: ./MAG/MGI/coverage_contig.txt
+#output: ./MAG/MGI/coverage_mag.txt
+#output: ./MAG/MGI/mgi_positions.txt
+
+#get whether MGIs fall into CDSs
+cd ./MAG/MGI/
+./mgi2gene.py -mgi mgi_positions.txt -gff ./MAG/dram_drep/genes.gff -o mgi2gene.txt
+#output: ./MAG/MGI/mgi2gene.txt
+
+#get information about number of mgis per mag
+./mgi2gene_count.py
+#output: ./MAG/MGI/mgi2gene_count.csv</code></pre></div>
+
+<h3 id="toc_98">8.2. Explore MGIs</h3>
+
+<div><pre><code class="language-bash">#number of transposases inside MGIs
+./mgi_overlap_transposases.py ./MAG/MGI/mgi_positions.txt ./MAG/GRF/transposase_clusters_flanks.txt
+#Total clusters found in MGI intervals: 676 out of 3741 (18%)
+
+#number of transposases inside MGIs (internal)
+grep &quot;internal_mgi&quot; ./MAG/MGI/mgi_positions.txt &gt; ./MAG/MGI/mgi_positions_internal.txt
+./mgi_overlap_transposases.py /./MAG/MGI/mgi_positions_internal.txt ./MAG/GRF/transposase_clusters_flanks.txt
+#Total clusters found in MGI intervals: 382 out of 3741
+
+#number of MGIs with transposases inside
+./transposase2mgi.py ./MAG/MGI/mgi_positions_internal.txt ./MAG/GRF/transposase_clusters_flanks.txt
+#output file: ./MAG/MGI/mgi_occupancy_report.csv
+
+#format mgi_occupancy_report.csv: add MAG name
+#taken from laptop: correspondances_MAG.txt
+./reformat_mgi_occupancy.py -i mgi_occupancy_report.csv -m correspondances_MAG.txt -o mgi_occupancy_report_MAG.csv
+#output: ./MAG/MGI/mgi_occupancy_report_MAG.csv</code></pre></div>
+
+<h1 id="toc_99">9. SingleM</h1>
+
+<div><pre><code class="language-none">mkdir ./singlem
+
+singlem pipe -1 ./01_trimmomatic/a-BM1a_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-BM1b_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-BM2_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-BM3_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-BM4_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-BM5_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-BR1_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-BR2_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-BR3_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-BR4_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-BR5_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM1a_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM1b_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM3a_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM3b_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM4_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM5_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-VR1_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-VR2_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-VR3_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-VR4_R1.trimmed.pe.fastq.gz ./01_trimmomatic/a-VR5_R1.trimmed.pe.fastq.gz -2 ./01_trimmomatic/a-BM1a_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-BM1b_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-BM2_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-BM3_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-BM4_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-BM5_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-BR1_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-BR2_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-BR3_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-BR4_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-BR5_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM1a_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM1b_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM3a_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM3b_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM4_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-VM5_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-VR1_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-VR2_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-VR3_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-VR4_R2.trimmed.pe.fastq.gz ./01_trimmomatic/a-VR5_R2.trimmed.pe.fastq.gz -p ./singlem/singlem_profile.txt --threads 50
+   
+#format results
+cd singlem
+singlem summarise --input-taxonomic-profile singlem_profile.txt --output-species-by-site-relative-abundance singlem_domain.txt --output-species-by-site-level domain
+singlem summarise --input-taxonomic-profile singlem_profile.txt --output-species-by-site-relative-abundance singlem_phylum.txt --output-species-by-site-level phylum
+singlem summarise --input-taxonomic-profile singlem_profile.txt --output-species-by-site-relative-abundance singlem_class.txt --output-species-by-site-level class
+singlem summarise --input-taxonomic-profile singlem_profile.txt --output-species-by-site-relative-abundance singlem_order.txt --output-species-by-site-level order
+singlem summarise --input-taxonomic-profile singlem_profile.txt --output-species-by-site-relative-abundance singlem_family.txt --output-species-by-site-level family
+singlem summarise --input-taxonomic-profile singlem_profile.txt --output-species-by-site-relative-abundance singlem_genus.txt --output-species-by-site-level genus  </code></pre></div>
+
+
+
+
+</body>
+
+</html>
