@@ -1,9 +1,7 @@
 # GlacialMeltwaterMicrobiome
 
-In the repository are all the scripts used from the bioinformatic and statistical analyses presented in the study "Microorganisms and their mobile genetic elements in glacial meltwater: a dynamic system for gene exchange".
-
-## Bioinformatic pipeline
+Welcome to the GlacialMeltwaterMicrobiome GitHub repository. This repository hosts a collection of bioinformatic and plotting scripts used in the research paper titled “Microorganisms and Their Mobile Genetic Elements in Glacial Meltwater: A Dynamic System for Gene Exchange.”
 
 
-## Plots
+The bioinformatic analysis pipeline and associated scripts can be found in the “BIOINFORMATICS” subfolder, while the scripts used to generate the R plots presented in the manuscript are located in the “PLOTS” subfolder.
 
